@@ -3,34 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diet App</title>
-    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Macro Diet App</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <h1>Find Recipes Based on Your Macros</h1>
-        <form id="macro-form">
-            <label for="carbs">Daily Carbs (g):</label>
-            <input type="number" id="carbs" name="carbs" required>
-            <label for="protein">Daily Protein (g):</label>
-            <input type="number" id="protein" name="protein" required>
-            <label for="fat">Daily Fat (g):</label>
-            <input type="number" id="fat" name="fat" required>
-            <label for="diet-type">Diet Type:</label>
-            <select id="diet-type" name="diet-type">
-                <option value="">Any</option> <!-- Add this option -->
-                <option value="vegan">Vegan</option>
-                <option value="veggie">Vegetarian</option>
-                <option value="keto">Keto</option>
-            </select>
-            <button type="submit">Find Meals</button>
-        </form>
+        <header>
+            <h1>Macro Diet App</h1>
+            <p>Find meal combinations tailored to your macros.</p>
+        </header>
         
-        <div id="results">
-            <h2>Matching Recipes:</h2>
-            <ul id="recipe-list"></ul>
-        </div>
+        <main>
+            <form id="macro-form">
+                <div class="form-group">
+                    <label for="carbs">Daily Carbs (g):</label>
+                    <input type="number" id="carbs" name="carbs" placeholder="e.g., 200" required>
+                </div>
+                <div class="form-group">
+                    <label for="protein">Daily Protein (g):</label>
+                    <input type="number" id="protein" name="protein" placeholder="e.g., 150" required>
+                </div>
+                <div class="form-group">
+                    <label for="fat">Daily Fat (g):</label>
+                    <input type="number" id="fat" name="fat" placeholder="e.g., 50" required>
+                </div>
+                <div class="form-group">
+                    <label for="diet-type">Diet Type:</label>
+                    <select id="diet-type" name="diet-type" required>
+                        <option value="">Any</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="veggie">Vegetarian</option>
+                        <option value="keto">Keto</option>
+                    </select>
+                </div>
+                <button type="submit">Find Meals</button>
+            </form>
+            
+            <section id="results">
+                <h2>Matching Meals</h2>
+                <div id="total-macros"></div>
+                <ul id="recipe-list"></ul>
+            </section>
+        </main>
+        
+        <footer>
+            <p>Powered by Macro Diet App</p>
+        </footer>
     </div>
-    <script src="/static/js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
