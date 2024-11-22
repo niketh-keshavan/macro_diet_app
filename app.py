@@ -16,7 +16,7 @@ def get_recipes():
     diet_type = data.get("diet_type")
     
     # Fetch all recipes or filter by diet type
-    if diet_type == "" or diet_type is None:  # Allow blank diet type for "any"
+    if diet_type is None or diet_type == "":  # Handle "Any" diet type
         all_recipes = session.query(Recipe).all()
     else:
         all_recipes = session.query(Recipe).filter(Recipe.diet_type.contains(diet_type)).all()

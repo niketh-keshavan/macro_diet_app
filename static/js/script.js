@@ -4,15 +4,16 @@ document.getElementById("macro-form").addEventListener("submit", async function 
     const carbs = document.getElementById("carbs").value;
     const protein = document.getElementById("protein").value;
     const fat = document.getElementById("fat").value;
-    const dietType = document.getElementById("diet-type").value; // This can be blank
+    const dietType = document.getElementById("diet-type").value;
 
+    // If "Any" is selected, send null for diet type
     const requestData = {
         macros: {
             carbs: parseFloat(carbs),
             protein: parseFloat(protein),
             fat: parseFloat(fat),
         },
-        diet_type: dietType || null, // Send null if diet type is blank
+        diet_type: dietType === "" ? null : dietType, // Convert empty string to null
     };
 
     try {
