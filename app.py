@@ -15,8 +15,8 @@ def get_recipes():
     target_macros = data.get("macros")
     diet_type = data.get("diet_type")
     
-    # Fetch all recipes or filter by diet type
-    if diet_type is None or diet_type == "":  # Handle "Any" diet type
+    # Handle "Any" diet type (null or empty string)
+    if diet_type is None or diet_type == "":  # "Any" diet type
         all_recipes = session.query(Recipe).all()
     else:
         all_recipes = session.query(Recipe).filter(Recipe.diet_type.contains(diet_type)).all()
